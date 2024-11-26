@@ -1,3 +1,8 @@
+v2.7.0.0 (2024-11-29)
+=====================
+    - added   - argus_camera example for L4T 36.4
+    - fixed   - detecting the Orin NX platform
+
 v2.6.0.0 (2024-05-29)
 =====================
     - added   - argus_camera example for L4T 36.3
