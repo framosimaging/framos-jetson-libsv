@@ -52,7 +52,8 @@ int main() try
 		cv::UMat yUMat = y.getUMat(cv::ACCESS_READ);
 		cv::UMat uvUMat = uv.getUMat(cv::ACCESS_READ);
 		cv::cvtColorTwoPlane(yUMat, uvUMat, bgr, cv::COLOR_YUV2BGR_NV12);
-		cv::namedWindow(camera->GetName() + " " + camera->GetDriverName(), cv::WINDOW_OPENGL | cv::WINDOW_AUTOSIZE);
+
+		cv::namedWindow(camera->GetName() + " " + camera->GetDriverName(), cv::WINDOW_AUTOSIZE);
 		cv::imshow(camera->GetName() + " " + camera->GetDriverName(), bgr); 	
 		
 		int key = cv::waitKey(1);		

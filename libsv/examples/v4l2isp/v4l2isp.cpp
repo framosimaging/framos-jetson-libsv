@@ -343,9 +343,7 @@ void Camera::GetSensorModes(int pipeID)
 	fflush(stdout);
 	
 	char buffer[4096] = {0};
-	char headerString1[] = "Opening in BLOCKING MODE";
-	char headerString2[] = "Available Sensor modes :";
-	
+
 	if(!read(pipeID, buffer, PIPE_BUF)){
 		throw std::runtime_error("Failed to extract frame sizes.");
 	} 
@@ -359,11 +357,14 @@ void Camera::GetSensorModes(int pipeID)
 	while((position = readBuffer.find(delimiter)) != std::string::npos) {
 		splitBuffer.push_back(readBuffer.substr(0, position));
 		readBuffer.erase(0, position + delimiter.length());
-	} 
-		
-	auto newLines = std::remove_if(splitBuffer.begin(), splitBuffer.end(), 
-		[&] (std::string const& tempLine) 
-		{return  (tempLine == "") || (tempLine == headerString1) || (tempLine == headerString2);});
+	}
+
+	auto newLines = std::remove_if(splitBuffer.begin(), splitBuffer.end(),
+		[&] (std::string const& tempLine)
+		{return  (tempLine.find("Opening") != std::string::npos) ||
+                 (tempLine.find("Available") != std::string::npos) ||
+                 (tempLine == "");});
+
 	splitBuffer.erase(newLines, splitBuffer.end());
 	
 	delimiter = " ";
@@ -389,8 +390,6 @@ void Camera::GetSensorModes(int pipeID)
 		}
 		sensorModes.push_back(tempSensorMode);
 	}
-	
-
 }
 
 void Camera::SetSensorMode(uint32_t sensorMode){
