@@ -1,9 +1,9 @@
 &nbsp;
 # Short procedure
 
-This list describes which "framos-jetson-libsv branch" to use for the desired Jetpack/L4T release.
+This list describes which "Framos branch branch" to use for the desired Jetpack/L4T release.
 
-| Jetpack / L4T version | framos-jetson-libsv branch   |
+| Jetpack / L4T version |        Framos branch         |
 |-----------------------|------------------------------|
 | 6.0 / 36.3            | l4t-r36.3                    |
 
