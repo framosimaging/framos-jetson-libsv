@@ -3,7 +3,7 @@
 
 This list describes which "framos-jetson-libsv branch" to use for the desired Jetpack/L4T release.
 
-| Jetpack / L4T version | framos-jetson-drivers branch |
+| Jetpack / L4T version | framos-jetson-libsv branch   |
 |-----------------------|------------------------------|
 | 6.1 / 36.4            | l4t-r36.4                    |
 | 6.0 / 36.3            | l4t-r36.3                    |
