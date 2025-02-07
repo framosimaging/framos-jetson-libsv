@@ -60,7 +60,7 @@ int main() try
     return EXIT_SUCCESS;
 } 
 catch (std::exception &e) {
-    std::cerr << "Error: " << e.what() << std::endl;
+    std::cerr << e.what() << std::endl;
     return EXIT_FAILURE;
 }
 
