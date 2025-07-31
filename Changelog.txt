@@ -1,3 +1,7 @@
+v2.9.0.0 (2025-07-31)
+=====================
+    - added   - argus_camera example for L4T 36.4.4
+
 v2.8.0.0 (2025-02-07)
 =====================
     - added   - argus_camera example for L4T 36.4.3
