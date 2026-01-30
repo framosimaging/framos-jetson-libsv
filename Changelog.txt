@@ -1,3 +1,7 @@
+v2.10.0.0 (2026-01-30)
+======================
+    - added   - support for 16bit Bayer formats in LibSV
+
 v2.9.0.0 (2025-07-31)
 =====================
     - added   - argus_camera example for L4T 36.4.4

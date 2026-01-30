@@ -53,6 +53,11 @@ uint8_t GetBpp(uint32_t pixelFormat)
     case V4L2_PIX_FMT_SRGGB12:
     case V4L2_PIX_FMT_SRGGB12P:
         return 12;
+    case V4L2_PIX_FMT_SBGGR16:
+    case V4L2_PIX_FMT_SGBRG16:
+    case V4L2_PIX_FMT_SGRBG16:
+    case V4L2_PIX_FMT_SRGGB16:
+        return 16;
     }
 
     return 0;
@@ -83,6 +88,7 @@ CvMat *DebayerImage(CvMat *mat, uint32_t pixelFormat)
     case V4L2_PIX_FMT_SBGGR10P:
     case V4L2_PIX_FMT_SBGGR12:
     case V4L2_PIX_FMT_SBGGR12P:
+    case V4L2_PIX_FMT_SBGGR16:
         cvCvtColor(mat, debayeringBuffer, CV_BayerBG2RGB);
         break;
     case V4L2_PIX_FMT_SGBRG8:
@@ -90,6 +96,7 @@ CvMat *DebayerImage(CvMat *mat, uint32_t pixelFormat)
     case V4L2_PIX_FMT_SGBRG10P:
     case V4L2_PIX_FMT_SGBRG12:
     case V4L2_PIX_FMT_SGBRG12P:
+    case V4L2_PIX_FMT_SGBRG16:
         cvCvtColor(mat, debayeringBuffer, CV_BayerGB2RGB);
         break;
     case V4L2_PIX_FMT_SGRBG8:
@@ -97,6 +104,7 @@ CvMat *DebayerImage(CvMat *mat, uint32_t pixelFormat)
     case V4L2_PIX_FMT_SGRBG10P:
     case V4L2_PIX_FMT_SGRBG12:
     case V4L2_PIX_FMT_SGRBG12P:
+    case V4L2_PIX_FMT_SGRBG16:
         cvCvtColor(mat, debayeringBuffer, CV_BayerGR2RGB);
         break;
     case V4L2_PIX_FMT_SRGGB8:
@@ -104,6 +112,7 @@ CvMat *DebayerImage(CvMat *mat, uint32_t pixelFormat)
     case V4L2_PIX_FMT_SRGGB10P:
     case V4L2_PIX_FMT_SRGGB12:
     case V4L2_PIX_FMT_SRGGB12P:
+    case V4L2_PIX_FMT_SRGGB16:
         cvCvtColor(mat, debayeringBuffer, CV_BayerRG2RGB);
         break;
     }

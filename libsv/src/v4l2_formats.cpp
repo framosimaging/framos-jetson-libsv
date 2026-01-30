@@ -22,6 +22,38 @@
 #define V4L2_PIX_FMT_SRGGB12P v4l2_fourcc('p', 'R', 'C', 'C')
 #endif
 
+#ifndef V4L2_PIX_FMT_SBGGR16
+#define V4L2_PIX_FMT_SBGGR16 v4l2_fourcc('B', 'Y', 'R', '2') /* 16  BGBG.. GRGR.. */
+#endif
+
+#ifndef V4L2_PIX_FMT_SGBRG16
+#define V4L2_PIX_FMT_SGBRG16 v4l2_fourcc('G', 'B', '1', '6') /* 16  GBGB.. RGRG.. */
+#endif
+
+#ifndef V4L2_PIX_FMT_SGRBG16
+#define V4L2_PIX_FMT_SGRBG16 v4l2_fourcc('G', 'R', '1', '6') /* 16  GRGR.. BGBG.. */
+#endif
+
+#ifndef V4L2_PIX_FMT_SRGGB16
+#define V4L2_PIX_FMT_SRGGB16 v4l2_fourcc('R', 'G', '1', '6') /* 16  RGRG.. GBGB.. */
+#endif
+
+#ifndef MEDIA_BUS_FMT_SBGGR16_1X16
+#define MEDIA_BUS_FMT_SBGGR16_1X16		0x301d
+#endif
+
+#ifndef MEDIA_BUS_FMT_SGBRG16_1X16
+#define MEDIA_BUS_FMT_SGBRG16_1X16		0x301e
+#endif
+
+#ifndef MEDIA_BUS_FMT_SGRBG16_1X16
+#define MEDIA_BUS_FMT_SGRBG16_1X16		0x301f
+#endif
+
+#ifndef MEDIA_BUS_FMT_SRGGB16_1X16
+#define MEDIA_BUS_FMT_SRGGB16_1X16		0x3020
+#endif
+
 namespace v4l2 
 {
     namespace format
@@ -29,6 +61,11 @@ namespace v4l2
         uint32_t GetBpp(uint32_t pixelformat)
         {
             switch(TranslateToDev(pixelformat)) {
+            case V4L2_PIX_FMT_SBGGR16:
+            case V4L2_PIX_FMT_SGBRG16:
+            case V4L2_PIX_FMT_SGRBG16:
+            case V4L2_PIX_FMT_SRGGB16:
+                return 16;
             case V4L2_PIX_FMT_SBGGR12P:
             case V4L2_PIX_FMT_SGBRG12P:
             case V4L2_PIX_FMT_SGRBG12P:
@@ -61,6 +98,14 @@ namespace v4l2
         uint32_t TranslateToDev(uint32_t subdevFormat)
         {
             switch(subdevFormat) {
+            case MEDIA_BUS_FMT_SBGGR16_1X16:
+                return V4L2_PIX_FMT_SBGGR16;
+            case MEDIA_BUS_FMT_SGBRG16_1X16:
+                return V4L2_PIX_FMT_SGBRG16;
+            case MEDIA_BUS_FMT_SGRBG16_1X16:
+                return V4L2_PIX_FMT_SGRBG16;
+            case MEDIA_BUS_FMT_SRGGB16_1X16:
+                return V4L2_PIX_FMT_SRGGB16;
             case MEDIA_BUS_FMT_SBGGR12_1X12:
                 return V4L2_PIX_FMT_SBGGR12P;
             case MEDIA_BUS_FMT_SGBRG12_1X12:
@@ -93,6 +138,14 @@ namespace v4l2
         uint32_t TranslateToSubdev(uint32_t devFormat)
         {
             switch(devFormat) {
+            case V4L2_PIX_FMT_SBGGR16:
+                return MEDIA_BUS_FMT_SBGGR16_1X16;
+            case V4L2_PIX_FMT_SGBRG16:
+                return MEDIA_BUS_FMT_SGBRG16_1X16;
+            case V4L2_PIX_FMT_SGRBG16:
+                return MEDIA_BUS_FMT_SGRBG16_1X16;
+            case V4L2_PIX_FMT_SRGGB16:
+                return MEDIA_BUS_FMT_SRGGB16_1X16;
             case V4L2_PIX_FMT_SBGGR12P:
                 return MEDIA_BUS_FMT_SBGGR12_1X12;
             case V4L2_PIX_FMT_SGBRG12P:

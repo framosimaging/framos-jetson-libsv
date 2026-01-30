@@ -44,6 +44,7 @@ namespace sv
             break;
         case 10:
         case 12:
+        case 16:
             processedImage.length = imageInfo.width * imageInfo.height * 2;
             break;
         default:

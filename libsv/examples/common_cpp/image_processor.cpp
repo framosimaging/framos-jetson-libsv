@@ -21,6 +21,22 @@ namespace common
 #define V4L2_PIX_FMT_SRGGB12P v4l2_fourcc('p', 'R', 'C', 'C')
 #endif
 
+#ifndef V4L2_PIX_FMT_SBGGR16
+#define V4L2_PIX_FMT_SBGGR16 v4l2_fourcc('B', 'Y', 'R', '2') /* 16  BGBG.. GRGR.. */
+#endif
+
+#ifndef V4L2_PIX_FMT_SGBRG16
+#define V4L2_PIX_FMT_SGBRG16 v4l2_fourcc('G', 'B', '1', '6') /* 16  GBGB.. RGRG.. */
+#endif
+
+#ifndef V4L2_PIX_FMT_SGRBG16
+#define V4L2_PIX_FMT_SGRBG16 v4l2_fourcc('G', 'R', '1', '6') /* 16  GRGR.. BGBG.. */
+#endif
+
+#ifndef V4L2_PIX_FMT_SRGGB16
+#define V4L2_PIX_FMT_SRGGB16 v4l2_fourcc('R', 'G', '1', '6') /* 16  RGRG.. GBGB.. */
+#endif
+
 ImageProcessor::ImageProcessor(uint32_t pixelFormat) 
 : debayer(false), resizeOptions({}), showCrosshair(false), showFps(true), acquisitionFps(0), displayFps(0), pixelFormat(pixelFormat)
 {
@@ -128,6 +144,11 @@ uint8_t ImageProcessor::GetBpp(uint32_t pixelFormat)
     case V4L2_PIX_FMT_SRGGB12:
     case V4L2_PIX_FMT_SRGGB12P:
         return 12;
+    case V4L2_PIX_FMT_SBGGR16:
+    case V4L2_PIX_FMT_SGBRG16:
+    case V4L2_PIX_FMT_SGRBG16:
+    case V4L2_PIX_FMT_SRGGB16:
+        return 16;
     }
 
     throw std::invalid_argument("Could not detect bit depth based on pixel format " + std::to_string(pixelFormat));
@@ -141,6 +162,7 @@ void ImageProcessor::DebayerImage(cv::UMat &mat, uint32_t pixelFormat)
     case V4L2_PIX_FMT_SBGGR10P:
     case V4L2_PIX_FMT_SBGGR12:
     case V4L2_PIX_FMT_SBGGR12P:
+    case V4L2_PIX_FMT_SBGGR16:
         cv::cvtColor(mat, mat, cv::COLOR_BayerBG2RGB);
         break;
     case V4L2_PIX_FMT_SGBRG8:
@@ -148,6 +170,7 @@ void ImageProcessor::DebayerImage(cv::UMat &mat, uint32_t pixelFormat)
     case V4L2_PIX_FMT_SGBRG10P:
     case V4L2_PIX_FMT_SGBRG12:
     case V4L2_PIX_FMT_SGBRG12P:
+    case V4L2_PIX_FMT_SGBRG16:
         cv::cvtColor(mat, mat, cv::COLOR_BayerGB2RGB);
         break;
     case V4L2_PIX_FMT_SGRBG8:
@@ -155,6 +178,7 @@ void ImageProcessor::DebayerImage(cv::UMat &mat, uint32_t pixelFormat)
     case V4L2_PIX_FMT_SGRBG10P:
     case V4L2_PIX_FMT_SGRBG12:
     case V4L2_PIX_FMT_SGRBG12P:
+    case V4L2_PIX_FMT_SGRBG16:
         cv::cvtColor(mat, mat, cv::COLOR_BayerGR2RGB);
         break;
     case V4L2_PIX_FMT_SRGGB8:
@@ -162,6 +186,7 @@ void ImageProcessor::DebayerImage(cv::UMat &mat, uint32_t pixelFormat)
     case V4L2_PIX_FMT_SRGGB10P:
     case V4L2_PIX_FMT_SRGGB12:
     case V4L2_PIX_FMT_SRGGB12P:
+    case V4L2_PIX_FMT_SRGGB16:
         cv::cvtColor(mat, mat, cv::COLOR_BayerRG2RGB);
         break;
     }
