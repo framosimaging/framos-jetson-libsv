@@ -29,6 +29,7 @@ enum SV_PLATFORM
     SV_PLATFORM_JETSON_XAVIER_NX,   /**< Jetson Xavier NX */
     SV_PLATFORM_JETSON_TX2NX,      /**< Jetson TX2NX */
     SV_PLATFORM_JETSON_AGX_ORIN,    /**< Jetson AGX Orin*/
+    SV_PLATFORM_JETSON_AGX_THOR,    /**< Jetson AGX Thor*/
     SV_PLATFORM_JETSON_ORIN_NANO,    /**< Jetson Orin Nano*/
     SV_PLATFORM_JETSON_ORIN_NX,    /**< Jetson Orin NX*/
     SV_PLATFORM_DRAGONBOARD_410C,   /**< DragonBoard 410c */
