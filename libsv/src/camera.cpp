@@ -169,6 +169,7 @@ bool Camera::StartStream()
     case SV_PLATFORM_JETSON_TX2:
     case SV_PLATFORM_JETSON_XAVIER:
     case SV_PLATFORM_JETSON_AGX_ORIN:
+    case SV_PLATFORM_JETSON_AGX_THOR:
     case SV_PLATFORM_JETSON_ORIN_NANO:
     case SV_PLATFORM_JETSON_ORIN_NX:
     case SV_PLATFORM_JETSON_NANO:
@@ -467,6 +468,7 @@ std::string Camera::ParseDriverName(v4l2_capability &capabilities)
         case SV_PLATFORM_JETSON_XAVIER_NX:
         case SV_PLATFORM_JETSON_TX2NX:
         case SV_PLATFORM_JETSON_AGX_ORIN:
+        case SV_PLATFORM_JETSON_AGX_THOR:
         case SV_PLATFORM_JETSON_ORIN_NANO:
         case SV_PLATFORM_JETSON_ORIN_NX:
             return ParseJetsonDriverName(name);

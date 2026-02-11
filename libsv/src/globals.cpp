@@ -41,6 +41,8 @@ namespace global
             v4l2::platform = SV_PLATFORM_JETSON_ORIN_NANO;
         } else if (std::regex_match(model, std::regex("^NVIDIA Jetson Orin NX.*"))) {
             v4l2::platform = SV_PLATFORM_JETSON_ORIN_NX;
+        }else if (std::regex_match(model, std::regex("^NVIDIA Jetson Thor Developer Kit.*"))) {
+            v4l2::platform = SV_PLATFORM_JETSON_AGX_THOR;
         } else {
             LOG(ERROR) << "failed to match a supported platform";
         }
@@ -71,6 +73,7 @@ namespace global
             case SV_PLATFORM_JETSON_XAVIER_NX:
             case SV_PLATFORM_JETSON_TX2NX:
             case SV_PLATFORM_JETSON_AGX_ORIN:
+            case SV_PLATFORM_JETSON_AGX_THOR:
             case SV_PLATFORM_JETSON_ORIN_NANO:
             case SV_PLATFORM_JETSON_ORIN_NX:
                 InitializeJetsonCameras();

@@ -14,6 +14,7 @@ Int64Control::Int64Control(int fd, v4l2_queryctrl control) : V4l2Control(fd, con
     case SV_PLATFORM_JETSON_XAVIER_NX:
     case SV_PLATFORM_JETSON_TX2NX:
     case SV_PLATFORM_JETSON_AGX_ORIN:
+    case SV_PLATFORM_JETSON_AGX_THOR:
     case SV_PLATFORM_JETSON_ORIN_NANO:
     case SV_PLATFORM_JETSON_ORIN_NX:
         Set(defaultValue);

@@ -40,6 +40,7 @@ bool Int32Control::IsArgusControl(std::string name)
         case SV_PLATFORM_JETSON_XAVIER_NX:
         case SV_PLATFORM_JETSON_TX2NX:
         case SV_PLATFORM_JETSON_AGX_ORIN:
+        case SV_PLATFORM_JETSON_AGX_THOR:
         case SV_PLATFORM_JETSON_ORIN_NANO:
         case SV_PLATFORM_JETSON_ORIN_NX:
             return name == "Bypass Mode" || name == "Override Enable";
