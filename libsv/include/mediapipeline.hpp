@@ -1,7 +1,7 @@
 #pragma once
 
 #include "mediaentity.hpp"
-
+#include <cstdint>
 #include <string>
 #include <vector>
 #include <memory>

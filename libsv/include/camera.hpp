@@ -3,6 +3,7 @@
 #include <condition_variable>
 #include <queue>
 #include <unordered_map>
+#include <string>
 
 #include "buffer.hpp"
 #include "image_info_manager.hpp"

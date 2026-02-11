@@ -1,6 +1,7 @@
 #pragma once
-
+#include <cstdint>
 #include "control_menu.hpp"
+
 
 class FrameInterval
 {
