@@ -313,6 +313,7 @@ namespace processing {
         case SV_PLATFORM_JETSON_XAVIER:
         case SV_PLATFORM_JETSON_XAVIER_NX:
         case SV_PLATFORM_JETSON_AGX_ORIN:
+        case SV_PLATFORM_JETSON_AGX_THOR:
         case SV_PLATFORM_JETSON_ORIN_NANO:
         case SV_PLATFORM_JETSON_ORIN_NX:
             return ProcessXavierImage(input, output);
