@@ -1,3 +1,7 @@
+v2.11.0.0 (2026-02-14)
+======================
+    - added   - support for AGX Thor for L4T 38.4
+
 v2.10.0.0 (2026-01-30)
 ======================
     - added   - support for 16bit Bayer formats in LibSV
