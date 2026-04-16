@@ -10,9 +10,9 @@
 #include "enums.h"
 
 #define MAJOR_VERSION 2
-#define MINOR_VERSION 7
+#define MINOR_VERSION 8
 #define PATCH_VERSION 0
-#define BUILD_VERSION 0
+#define BUILD_VERSION 1
 
 #define SV_EXPORT __attribute__ ((visibility ("default")))
 
@@ -141,6 +141,7 @@ public:
     virtual ~ICamera();
     virtual const char* GetName() = 0;          /**< see sv_camera_GetName()  */
     virtual const char* GetDriverName() = 0;    /**< see sv_camera_GetDriverName()  */
+    virtual const char* GetCardTypeInfo() = 0;    /**< see sv_camera_GetDeviceInfo()  */
     virtual bool StartStream() = 0;             /**< see sv_camera_StartStream()  */
     virtual bool StopStream() = 0;              /**< see sv_camera_StopStream()  */
     virtual IImage GetImage() = 0;              /**< see sv_camera_GetImage()  */
@@ -227,6 +228,13 @@ extern SV_EXPORT const char* sv_camera_GetName(ICamera* camera);
  * @return const char* Returns a string containing driver name.
  */
 extern SV_EXPORT const char* sv_camera_GetDriverName(ICamera* camera);
+/**
+ * @brief This function returns info about device - i2c bus and i2c address.
+ *
+ * @param camera
+ * @return const char* Returns a string with device bus and address.
+ */
+extern SV_EXPORT const char* sv_camera_GetCardTypeInfo(ICamera* camera);
 /**
  * @brief This functions tells the camera to start capture frames.
  * 
