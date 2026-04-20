@@ -187,6 +187,7 @@ namespace global
         if (initialized == false) {
             InitializeLogging();
             InitializeCameras();
+            initialized = true;
         }
 
         cameraList.reserve(cameras.size());

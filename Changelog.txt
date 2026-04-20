@@ -1,3 +1,8 @@
+v2.10.1.0 (2026-04-20)
+======================
+    - fixed   - successive calls to sv::GetAllCameras() or sv_GetAllCameras() resulted
+                with the same device being repeatedly added to the list of cameras on every call
+
 v2.10.0.0 (2026-01-30)
 ======================
     - added   - support for 16bit Bayer formats in LibSV
