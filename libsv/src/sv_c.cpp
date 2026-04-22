@@ -14,6 +14,11 @@ const char* sv_camera_GetDriverName(ICamera* camera)
     return camera->GetDriverName();
 }
 
+const char* sv_camera_GetCardTypeInfo(ICamera* camera)
+{
+    return camera->GetCardTypeInfo();
+}
+
 int sv_camera_StartStream(ICamera* camera)
 {
     return camera->StartStream();

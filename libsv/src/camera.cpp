@@ -65,6 +65,11 @@ const char* Camera::GetDriverName()
     return driverName.c_str();
 }
 
+const char* Camera::GetCardTypeInfo()
+{
+    return cardTypeInfo.c_str();
+}
+
 IControlList Camera::GetControlList()
 {
     IControlList icontrolList;
@@ -469,6 +474,7 @@ std::string Camera::ParseDriverName(v4l2_capability &capabilities)
         case SV_PLATFORM_JETSON_AGX_ORIN:
         case SV_PLATFORM_JETSON_ORIN_NANO:
         case SV_PLATFORM_JETSON_ORIN_NX:
+            GetCardTypeInfo(name);
             return ParseJetsonDriverName(name);
         default:
             return name;
@@ -496,6 +502,18 @@ bool Camera::GetCapabilities(v4l2_capability &capabilities)
     }
 
     return true;
+}
+
+void Camera::GetCardTypeInfo(std::string info)
+{
+    auto split = SplitString(info, " ");
+    if (split.size() == 3) {
+        cardTypeInfo = split[2];
+        return;
+    }
+
+    LOG(WARNING) << "Unable to parse Jetson device info. Using unparsed info.";
+    cardTypeInfo =  info;
 }
 
 void Camera::PopulateMainV4L2Controls()

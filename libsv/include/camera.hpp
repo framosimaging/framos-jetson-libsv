@@ -30,6 +30,7 @@ public:
     IControlList GetControlList() override;
     const char* GetName() override;
     const char* GetDriverName() override;
+    const char* GetCardTypeInfo() override;
     IControl* GetControl(int id) override;
 
 private:
@@ -63,6 +64,7 @@ private:
     int controlFd;
     std::string name;
     std::string driverName;
+    std::string cardTypeInfo;
     int blockingTimeOut = 0; // In milliseconds
     int tearingPreventionTimeout = 100; //In milliseconds
 
@@ -90,6 +92,7 @@ private:
     std::string ParseDriverName(v4l2_capability &capabilities);
     std::string ParseJetsonDriverName(std::string name);
     bool GetCapabilities(v4l2_capability &capabilities);
+    void GetCardTypeInfo(std::string info);
     void PopulateAPIControls();
     void PopulateMainV4L2Controls();
     void PopulateUserV4L2Controls();
