@@ -1,3 +1,7 @@
+v2.12.1.0 (2026-05-20)
+======================
+    - changed - prebuilt LibSV examples to match LibSV library updates
+
 v2.12.0.0 (2026-04-22)
 ======================
     - added   - additional device info (i2c bus and device address) available in LibSV API
