@@ -1,0 +1,18 @@
+&nbsp;
+# Short procedure
+
+This list describes which "Framos branch branch" to use for the desired Jetpack/L4T release.
+
+| Jetpack / L4T version |         Framos branch        |
+|-----------------------|------------------------------|
+| 7.2 / 39.2.0          | l4t-r39.2.0                  |
+| 6.2.1 / 36.4.4        | l4t-r36.4.4                  |
+| 6.2 / 36.4.3          | l4t-r36.4.3                  |
+| 6.1 / 36.4            | l4t-r36.4                    |
+| 6.0 / 36.3            | l4t-r36.3                    |
+
+## 1. Get & Install Framos libsv
+- [Clone, Install and Run on target system(Jetson platform)](https://github.com/framosimaging/framos-jetson-libsv/wiki/Clone,-Install-and-Run-on-target-system(Jetson-platform))
+##
+- Detailed guide and additional options and descriptions - [FRAMOS Sensor Module Ecosystem ‐ Software User Guide](https://github.com/framosimaging/framos-jetson-libsv/wiki/FRAMOS-Sensor-Module-Ecosystem-%E2%80%90-Software-User-Guide)
+
