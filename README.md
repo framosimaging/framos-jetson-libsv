@@ -5,6 +5,7 @@ This list describes which "Framos branch branch" to use for the desired Jetpack/
 
 | Jetpack / L4T version |         Framos branch        |
 |-----------------------|------------------------------|
+| 7.2.1 / 39.2.1        | l4t-r39.2.1                  |
 | 7.2 / 39.2.0          | l4t-r39.2.0                  |
 | 6.2.1 / 36.4.4        | l4t-r36.4.4                  |
 | 6.2 / 36.4.3          | l4t-r36.4.3                  |
